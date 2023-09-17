@@ -1,0 +1,16 @@
+{
+    "name": "projetoidm/agendamento_consulta",
+    "description": "Projeto para gerenciar consultas",
+    "autoload": {
+        "psr-4": {
+            "app\\": "app"
+        }
+    },
+    "authors": [
+        {
+            "name": "Elkem Balieiro",
+            "email": "elkem.balieiroo@gmail.com"
+        }
+    ],
+    "require": {}
+}
