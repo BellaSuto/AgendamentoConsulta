@@ -3,11 +3,12 @@
 namespace app\controllers;
 
 use app\entity\Login as EntityLogin;
+use app\entity\Usuario;
 use Exception;
 
 class Login
 {
-    public function index($params)
+    public function index()
     {
         return [
             'view' => 'login.php',
@@ -24,6 +25,22 @@ class Login
             throw new Exception('Não pode deixar nada em branco');
         }
 
-        return EntityLogin::hasUsuario($userName, $passWord);
+        $usuarioEntity = EntityLogin::hasUsuario($userName, $passWord);
+        if ($usuarioEntity) {
+            $usuarioEntity = Usuario::getUsuario($usuarioEntity->idUsuario);
+            if ($this->login($usuarioEntity)) {
+                $_SESSION[LOGGED] = $usuarioEntity;
+                redirect('/home');
+            } else {
+                unset($_SESSION[LOGGED]);
+                redirect('/');
+            }
+        } else {
+        }
+    }
+
+    private function login(Usuario $user)
+    {
+        return EntityLogin::save($user);
     }
 }

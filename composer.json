@@ -4,12 +4,15 @@
     "autoload": {
         "files": [
             "app/helpers/constants.php",
+            "app/helpers/redirect.php",
             "app/router/router.php",
             "app/core/controller.php",
             "app/controllers/Login.php",
             "app/database/connect.php",
             "app/entity/EntityAbstract.php",
             "app/entity/Login.php",
+            "app/entity/Grupo.php",
+            "app/entity/Usuario.php",
             "app/entity/Pessoa.php"
         ],
         "psr-4": {
@@ -22,5 +25,7 @@
             "email": "elkem.balieiroo@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "symfony/var-dumper": "^5.3"
+    }
 }

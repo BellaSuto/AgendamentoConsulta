@@ -7,13 +7,19 @@ namespace Composer\Autoload;
 class ComposerStaticInit9e583a3071f10307c27ed2a6896209c8
 {
     public static $files = array (
+        '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
+        'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
+        '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
         '3e727a68d35e7e13a7c74747b33e9c77' => __DIR__ . '/../..' . '/app/helpers/constants.php',
+        '23d49a2a5e60bcff8a5bbefa30f983fb' => __DIR__ . '/../..' . '/app/helpers/redirect.php',
         '665c3a4ea4a5ba46713901c6b3de59be' => __DIR__ . '/../..' . '/app/router/router.php',
         'a8caa48ee2ff18926e6cb26ccb8a5f56' => __DIR__ . '/../..' . '/app/core/controller.php',
         'e8093bfd0c0e638ae16ca48e449450a6' => __DIR__ . '/../..' . '/app/controllers/Login.php',
         '4b3df8293d5afa9651a41d23fa47f520' => __DIR__ . '/../..' . '/app/database/connect.php',
         '3b970d4cb2f9c0d415f4447e8d16d6d7' => __DIR__ . '/../..' . '/app/entity/EntityAbstract.php',
         'e60a427db336aa53137f2f3b38d15ee7' => __DIR__ . '/../..' . '/app/entity/Login.php',
+        'b9ac6105ab9ebe8d876124095adf1691' => __DIR__ . '/../..' . '/app/entity/Grupo.php',
+        '8ffab31ec898f5976b10b19a265e3551' => __DIR__ . '/../..' . '/app/entity/Usuario.php',
         'ca9ecc659d6dd83051ad5d367169a373' => __DIR__ . '/../..' . '/app/entity/Pessoa.php',
     );
 
@@ -22,6 +28,12 @@ class ComposerStaticInit9e583a3071f10307c27ed2a6896209c8
         array (
             'app\\' => 4,
         ),
+        'S' => 
+        array (
+            'Symfony\\Polyfill\\Php80\\' => 23,
+            'Symfony\\Polyfill\\Mbstring\\' => 26,
+            'Symfony\\Component\\VarDumper\\' => 28,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
@@ -29,10 +41,27 @@ class ComposerStaticInit9e583a3071f10307c27ed2a6896209c8
         array (
             0 => __DIR__ . '/../..' . '/app',
         ),
+        'Symfony\\Polyfill\\Php80\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/polyfill-php80',
+        ),
+        'Symfony\\Polyfill\\Mbstring\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/polyfill-mbstring',
+        ),
+        'Symfony\\Component\\VarDumper\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/var-dumper',
+        ),
     );
 
     public static $classMap = array (
+        'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+        'PhpToken' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/PhpToken.php',
+        'Stringable' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Stringable.php',
+        'UnhandledMatchError' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/UnhandledMatchError.php',
+        'ValueError' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/ValueError.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
