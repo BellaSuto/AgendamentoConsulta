@@ -1,0 +1,18 @@
+@media print {
+	.impressao-oculta {
+		display: none;
+	}
+
+	div[vw].enabled {
+		display: none !important;
+	}
+
+	.imprimivel-card {
+		display: block !important;
+		position: fixed;
+		top: 10px;
+		left: 10px;
+
+		z-index: 999;
+	}
+}
