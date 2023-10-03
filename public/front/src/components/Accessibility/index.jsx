@@ -1,4 +1,4 @@
-import { Box, Flex, Button } from "@chakra-ui/react";
+import { Box, Flex, Button, IconButton } from "@chakra-ui/react";
 import { AiOutlineEye } from "react-icons/ai";
 import {
 	LiaSearchPlusSolid,
@@ -8,8 +8,10 @@ import {
 } from "react-icons/lia";
 import { ModalComponent } from "../Modal";
 import { useState } from "react";
+import { StyledBox } from "../../styles/accessibility";
 
-export const Accessibility = ({ toggleHighContrast, isHighContrast }) => {
+// export
+const CustomBox = ({ toggleHighContrast, isHighContrast, isMobile }) => {
 	const componentStyles = {
 		color: isHighContrast ? "var(--gray-0)" : "var(--white-fixed)",
 	};
@@ -28,7 +30,7 @@ export const Accessibility = ({ toggleHighContrast, isHighContrast }) => {
 	const toggleFontSize = (option) => {
 		let newFontSize = fontSize;
 		const minFontSize = 10;
-		const maxFontSize = 34;
+		const maxFontSize = 30;
 
 		if (option === "increase") {
 			newFontSize += 2;
@@ -127,16 +129,77 @@ export const Accessibility = ({ toggleHighContrast, isHighContrast }) => {
 		</span>
 	);
 
+	if (isMobile) {
+		return (
+			<StyledBox
+				style={{
+					backgroundColor: isHighContrast
+						? "var(--secondary-header)"
+						: "var(--primary-header)",
+				}}
+			>
+				<Flex className="flex">
+					<Box zIndex={150}>
+						<IconButton
+							icon={<LiaSearchPlusSolid />}
+							variant="link"
+							size="sm"
+							mr={2}
+							onClick={() => toggleFontSize("increase")}
+							padding={1.5}
+							style={componentStyles}
+						></IconButton>
+						<IconButton
+							icon={<LiaSearchMinusSolid />}
+							variant="link"
+							size="sm"
+							mr={2}
+							padding={1.5}
+							style={componentStyles}
+							onClick={() => toggleFontSize("decrease")}
+						></IconButton>
+						<IconButton
+							icon={<LiaSearchSolid />}
+							variant="link"
+							size="sm"
+							mr={2}
+							padding={1.5}
+							style={componentStyles}
+							onClick={() => toggleFontSize("reset")}
+						></IconButton>
+						<IconButton
+							icon={<AiOutlineEye />}
+							variant="link"
+							size="sm"
+							mr={2}
+							padding={1.5}
+							style={componentStyles}
+							onClick={toggleHighContrast}
+						></IconButton>
+						<IconButton
+							icon={<LiaAmericanSignLanguageInterpretingSolid />}
+							variant="link"
+							size="sm"
+							mr={2}
+							padding={1.5}
+							style={componentStyles}
+							onClick={toggleVLibras}
+						></IconButton>
+						<ModalComponent
+							buttonName={"Acessibilidades"}
+							title={"Acessibilidades"}
+							message={formattedText}
+							isHighContrast={isHighContrast}
+							componentStyles={componentStyles}
+						/>
+					</Box>
+				</Flex>
+			</StyledBox>
+		);
+	}
+
 	return (
-		<Box
-			width="100vw"
-			px={4}
-			top={0}
-			left={0}
-			right={0}
-			display={"flex"}
-			alignItems={"center"}
-			justifyContent={"center"}
+		<StyledBox
 			style={{
 				backgroundColor: isHighContrast
 					? "var(--secondary-header)"
@@ -144,6 +207,7 @@ export const Accessibility = ({ toggleHighContrast, isHighContrast }) => {
 			}}
 		>
 			<Flex
+				className="flex"
 				alignItems="center"
 				bg={"rgb(63, 159, 214)"}
 				p={"5px 10px"}
@@ -214,6 +278,20 @@ export const Accessibility = ({ toggleHighContrast, isHighContrast }) => {
 					/>
 				</Box>
 			</Flex>
+		</StyledBox>
+	);
+};
+
+export const Accessibility = ({ toggleHighContrast, isHighContrast }) => {
+	const isMobile = window.innerWidth <= 768;
+
+	return (
+		<Box w="100%">
+			<CustomBox
+				toggleHighContrast={toggleHighContrast}
+				isHighContrast={isHighContrast}
+				isMobile={isMobile}
+			/>
 		</Box>
 	);
 };

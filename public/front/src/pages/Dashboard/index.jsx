@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { DashboardDiv } from "../../styles/dashboard";
 import { Button, ButtonGroup, Stack } from "@chakra-ui/react";
+import { FaHandsHelping } from "react-icons/fa";
 
 export const Dashboard = ({ isHighContrast, fontSize, isLoggedIn }) => {
 	const componentStyles = {
@@ -27,6 +28,7 @@ export const Dashboard = ({ isHighContrast, fontSize, isLoggedIn }) => {
 							<Stack spacing={7} direction="column">
 								<Link to="/consulta">
 									<Button
+										rightIcon={<FaHandsHelping size={25} />}
 										w={"100%"}
 										colorScheme="blue"
 										variant="solid"
@@ -36,7 +38,7 @@ export const Dashboard = ({ isHighContrast, fontSize, isLoggedIn }) => {
 												: "login-button"
 										}
 									>
-										Quero agendar!
+										Só se for agora!
 									</Button>
 								</Link>
 							</Stack>
@@ -64,10 +66,14 @@ export const Dashboard = ({ isHighContrast, fontSize, isLoggedIn }) => {
 						<ButtonGroup
 							display="flex"
 							flexDirection={"column"}
-							mt={10}
-							gap={5}
+							mt={{ base: 7, md: 10 }}
+							gap={{ base: 3, md: 5 }}
+							pb={{ base: 8, md: 10 }}
 						>
-							<Stack spacing={7} direction="column">
+							<Stack
+								spacing={{ base: 5, md: 7 }}
+								direction="column"
+							>
 								<Link to="/login">
 									<Button
 										w={"100%"}

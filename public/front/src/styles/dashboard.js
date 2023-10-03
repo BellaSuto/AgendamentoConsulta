@@ -3,6 +3,10 @@ import styled from "styled-components";
 export const DashboardDiv = styled.div`
 	background: transparent;
 
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
 	z-index: 10;
 	height: 100%;
 
@@ -21,6 +25,7 @@ export const DashboardDiv = styled.div`
 
 		h2 {
 			font-size: 2.5em;
+			font-weight: 500;
 		}
 	}
 
@@ -65,5 +70,26 @@ export const DashboardDiv = styled.div`
 	.high-contrast-create-account-button:hover {
 		color: var(--white-fixed);
 	}
-`;
 
+	@media (max-width: 768px) {
+		.card {
+			flex-direction: column;
+			height: auto;
+			width: 100vw;
+		}
+
+		.primary-card {
+			width: 90%;
+			padding: 0px 10px;
+			line-height: 1.25;
+
+			h2 {
+				font-size: 2.3em;
+			}
+		}
+
+		.secondary-card {
+			width: 70%;
+		}
+	}
+`;

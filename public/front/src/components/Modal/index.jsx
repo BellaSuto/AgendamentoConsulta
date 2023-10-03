@@ -28,8 +28,9 @@ export const ModalComponent = ({
 	};
 
 	const buttonStyles = {
-		background: isHighContrast ? "var(--brand-2)" : "var(--brand-1)",
+		background: "var(--alert-1)",
 		color: isHighContrast ? "var(--gray-0)" : "var(--white-fixed)",
+		border: "none",
 	};
 
 	return (

@@ -16,31 +16,58 @@ export const MenuComponent = ({ setIsLoggedIn }) => {
 
 	const logout = () => {
 		setIsLoggedIn(false);
-		// localStorage.removeItem("@tokenG33:token");
+		// localStorage.removeItem("@token:token");
 		navigate("/");
 	};
 
 	return (
 		<Menu>
-			<MenuButton as={Button} size={"auto"} borderRadius={"50%"}>
+			<MenuButton
+				className="mobile-styles"
+				as={Button}
+				size={"auto"}
+				borderRadius={"50%"}
+			>
 				<Avatar
 					as={Button}
 					name="Daniel Lobato"
 					src="https://bit.ly/broken-link"
-					color="none"
+					color="black"
 				/>
 			</MenuButton>
-			<MenuList display="flex" flexDirection="column" gap="10px">
-				<MenuItem icon={<AiOutlineUser />}>Perfil</MenuItem>
-				<MenuItem icon={<AiOutlineHistory />}>Histórico</MenuItem>
-				<MenuDivider />
+			<MenuList
+				style={{
+					display: "flex",
+					flexDirection: "column",
+					gap: "3px",
+					padding: "2px",
+				}}
+			>
 				<MenuItem
-					icon={<RxExit />}
-					bg={"var(--alert-1)"}
-					color={"var(--white-fixed)"}
+					icon={<AiOutlineUser size={25} />}
+					style={{ borderRadius: "10px", border: "none" }}
+				>
+					Perfil
+				</MenuItem>
+				<MenuItem
+					icon={<AiOutlineHistory size={25} />}
+					style={{ borderRadius: "10px", border: "none" }}
+				>
+					Histórico
+				</MenuItem>
+				<MenuDivider style={{ margin: "3px" }} />
+				<MenuItem
+					className="MenuItem-Exit"
+					icon={<RxExit size={25} />}
+					style={{
+						backgroundColor: "var(--white-fixed)",
+						color: "var(--alert-1)",
+						borderRadius: "10px",
+						border: "none",
+					}}
 					onClick={() => logout()}
 				>
-					Sair
+					Pegar o beco
 				</MenuItem>
 			</MenuList>
 		</Menu>

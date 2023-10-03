@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
-export const Main = styled.main`
+export const MainComponent = styled.main`
+	background: ${(props) =>
+		props.isHighContrast ? "var(--secondary-bg)" : "var(--primary-bg)"};
+	color: ${(props) =>
+		props.isHighContrast ? "var(--white-fixed)" : "var(--gray-0)"};
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -8,6 +12,13 @@ export const Main = styled.main`
 	gap: 75px;
 
 	height: 100%;
+
+	@media (max-width: 768px) {
+		padding: 70px 15px;
+
+		gap: 20px;
+		height: 145vh;
+	}
 `;
 
 export const Description = styled.div`
@@ -24,8 +35,13 @@ export const Description = styled.div`
 	}
 
 	p {
-		padding: 0px 20px 20px ;
+		padding: 0px 20px 20px;
 		text-align: justify;
+	}
+
+	@media (max-width: 768px) {
+		width: auto;
+		min-width: auto;
 	}
 `;
 
@@ -56,5 +72,17 @@ export const Info = styled.div`
 		gap: 8px;
 
 		text-align: justify;
+	}
+
+	@media (max-width: 768px) {
+		width: 100%;
+		min-width: auto;
+		justify-content: center;
+
+		padding: 0;
+
+		ul {
+			padding-bottom: 10px;
+		}
 	}
 `;

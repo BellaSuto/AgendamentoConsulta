@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const HeaderDiv = styled.header`
 	position: fixed;
-	top: 0px;
+	top: 39px;
 	left: 0px;
 	right: 0px;
 	width: 100vw;
@@ -60,7 +60,7 @@ export const HeaderDiv = styled.header`
 		align-items: center;
 		gap: 45px;
 
-		font-size: 24px;
+		font-size: 20px;
 
 		z-index: 150;
 	}
@@ -99,7 +99,6 @@ export const HeaderDiv = styled.header`
 	.btn:hover {
 		transition: 1350ms;
 		padding: 10px 20px;
-		/* transform: translateY(-3px); */
 	}
 
 	.high-contrast-link {
@@ -107,6 +106,112 @@ export const HeaderDiv = styled.header`
 	}
 	.high-contrast-link:hover {
 		color: var(--brand-2) !important;
+	}
+
+	.button-menu {
+		display: none;
+	}
+
+	@media (max-width: 768px) {
+		top: -1px;
+		font-size: 24px;
+
+		.header {
+			height: 10vh;
+			padding: 15px 45vw 20px 10vw;
+			border-bottom: 3px solid var(--random-4) !important;
+
+			.image-container {
+				left: 0;
+			}
+
+			.nav {
+				display: none;
+			}
+		}
+
+		.button-menu {
+			display: block;
+
+			position: fixed;
+			top: 14px;
+			right: 10px;
+
+			width: auto;
+			height: auto;
+
+			border-radius: 5px;
+			border: 2px solid var(--random-4);
+
+			background: transparent;
+		}
+
+		.button-menu:focus {
+			border: 2px solid var(--random-4);
+		}
+
+		.sidebar {
+			position: fixed;
+			bottom: 0px;
+			right: 0px;
+
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			width: 65vw;
+			height: 100vh;
+
+			z-index: 99;
+
+			ul {
+				width: 100%;
+				height: 100%;
+
+				display: flex;
+				flex-direction: column;
+				gap: 10px;
+
+				li {
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					width: 100%;
+
+					a {
+						display: flex;
+						justify-content: center;
+
+						width: 100%;
+
+						transition: transform 350ms ease-out;
+					}
+					a:hover {
+						transform: translate(-7px, 0px) scale(1, 1);
+					}
+				}
+
+				.li--close--top {
+					background: var(--alert-1);
+				}
+
+				.li--close--bottom {
+					position: absolute;
+					bottom: 0;
+
+					width: 100%;
+					background: var(--alert-1);
+				}
+
+				.close-icon {
+					transition: transform 350ms ease-out;
+				}
+
+				.close-icon:hover {
+					transform: rotate(180deg) translate(0px, 0px);
+				}
+			}
+		}
 	}
 `;
 

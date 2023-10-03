@@ -41,6 +41,7 @@ export const DefaultGlobalStyle = createGlobalStyle`
   --random-1: #E34D8C;
   --random-2: #349974;
   --random-3: #4529E6;
+  --random-4: #3F9FD6;
 }
 
 .dark-mode:root {
@@ -69,7 +70,7 @@ export const DefaultGlobalStyle = createGlobalStyle`
   --white-fixed: #FFFFFF;
 
   --alert-1: #CD2B31;
-  --alert-2: #FDD8D8;
+  --alert-2: #D9484D;
   --alert-3: #FFE5E5;
 
   --success-1: #18794E;
@@ -88,6 +89,10 @@ export const DefaultGlobalStyle = createGlobalStyle`
   padding-top: 13vh;
   height: 100vh;
   width: 100vw;
+
+  @media (max-width: 768px) {
+    padding-top: 7vh;
+  }
 
 
   #ace {

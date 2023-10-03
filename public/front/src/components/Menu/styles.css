@@ -1,0 +1,14 @@
+.MenuButton {
+  /* Seus estilos para o componente MenuButton */
+  border-radius: 10px;
+  /* Outros estilos... */
+}
+
+@media (max-width: 767px) {
+  .MenuButton {
+    /* Estilos para dispositivos móveis */
+    /* Por exemplo: */
+    border-radius: 5px;
+    /* Outros estilos para dispositivos móveis */
+  }
+}

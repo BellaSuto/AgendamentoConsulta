@@ -6,6 +6,7 @@ import { MdOutlineElderlyWoman } from "react-icons/md";
 import { TbMoodBoy } from "react-icons/tb";
 import DermIcon from "../src/assets/derm.svg";
 import EndocrineIcon from "../src/assets/endocrine.svg";
+import UteroDarkIcon from "../src/assets/utero-dark.svg";
 
 export const specialtyData = [
 	{
@@ -107,15 +108,16 @@ export const specialtyData = [
 		description:
 			"Especialidade médica que cuida do aparelho reprodutor da mulher, abrangendo o útero, os ovários, a vagina, etc.",
 		image: "https://www.ufmg.br/espacodoconhecimento/wp-content/uploads/2021/04/27dd7cddd3c2da4d8b388b00e3c63c22_L-550x550.jpg",
-		icon: (
-			<BsGenderFemale
-				style={{
-					height: "250px",
-					width: "250px",
-					color: "var(--brand-1)",
-				}}
-			/>
-		),
+		icon: <img src={UteroDarkIcon} alt="Símbolo da Dermatologia" />,
+		// icon: (
+		// 	<BsGenderFemale
+		// 		style={{
+		// 			height: "250px",
+		// 			width: "250px",
+		// 			color: "var(--brand-1)",
+		// 		}}
+		// 	/>
+		// ),
 		doctor: {
 			id: 5,
 			name: "Dr. Clementina Silva",

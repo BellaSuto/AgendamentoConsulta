@@ -1,6 +1,6 @@
 import { Card } from "@chakra-ui/react";
 import { GoogleMiniMap } from "../../components/GoogleMiniMap";
-import { Main, Description, Info } from "../../styles/unit";
+import { MainComponent, Description, Info } from "../../styles/unit";
 import { AiOutlineGlobal, AiFillPhone } from "react-icons/ai";
 import { PiMapPinFill } from "react-icons/pi";
 import { MdEmail } from "react-icons/md";
@@ -14,14 +14,15 @@ export const Unit = ({ fontSize, isHighContrast }) => {
 	};
 
 	return (
-		<Main style={componentStyles}>
+		// <MainComponent style={componentStyles}>
+		<MainComponent isHighContrast={isHighContrast}>
 			<Card
 				style={componentStyles}
 				className="card"
 				display={"flex"}
 				alignItems={"center"}
-				w="70%"
-				p={5}
+				w={{base: "100%", md: "75%"}}
+				p={{base: 3, md: 5}}
 				gap={10}
 				boxShadow={
 					"rgba(128,128,128,0.5) 0px 2px 4px 0px, rgba(128,128,128,0.5) 0px 1px 1px 0px;"
@@ -72,6 +73,6 @@ export const Unit = ({ fontSize, isHighContrast }) => {
 					<GoogleMiniMap />
 				</Info>
 			</Card>
-		</Main>
+		</MainComponent>
 	);
 };

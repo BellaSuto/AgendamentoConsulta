@@ -7,12 +7,15 @@ import {
 	Tooltip,
 	CardHeader,
 	Button,
+	Slider,
+	useMediaQuery,
 } from "@chakra-ui/react";
 import { InfoOutlineIcon } from "@chakra-ui/icons";
 import "@fontsource/inter";
 import { Link } from "react-router-dom";
 import { StyledBox, StyledCard } from "../../styles/specialty";
 import { specialtyData } from "../../../public/specialtyData";
+import { useEffect } from "react";
 
 const SpecialtyCard = ({ specialty, isHighContrast }) => {
 	const componentStyles = {
@@ -21,6 +24,32 @@ const SpecialtyCard = ({ specialty, isHighContrast }) => {
 			: "var(--primary-header)",
 		color: isHighContrast ? "var(--white-fixed)" : "var(--gray-0)",
 	};
+
+	// const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
+
+	// const settings = {
+	// 	dots: true,
+	// 	infinite: true,
+	// 	speed: 500,
+	// 	slidesToShow: isMobile ? 1 : 3, // Altere conforme necessário
+	// 	slidesToScroll: 1,
+	// };
+
+	// if (isMobile) {
+	// 	return (
+	// 		<Slider {...settings}>
+	// 			<div>
+	// 				<h3>Slide 1</h3>
+	// 			</div>
+	// 			<div>
+	// 				<h3>Slide 2</h3>
+	// 			</div>
+	// 			<div>
+	// 				<h3>Slide 3</h3>
+	// 			</div>
+	// 		</Slider>
+	// 	);
+	// }
 
 	return (
 		<StyledCard
@@ -61,6 +90,28 @@ export const Specialty = ({ isHighContrast, isLoggedIn }) => {
 		/>
 	));
 
+	useEffect(() => {
+		const handleResize = () => {
+			const isMobile = window.innerWidth < 768; // Considerando 768px como limite para ser mobile
+			if (isMobile) {
+				console.log("Abacaxi"); // Exibe "Abacaxi" se for mobile
+			} else {
+				console.log("Maçã"); // Exibe "Maçã" se for desktop
+			}
+		};
+
+		// Adiciona um ouvinte de evento para verificar o tamanho da tela ao redimensionar
+		window.addEventListener("resize", handleResize);
+
+		// Verifica o tamanho da tela ao carregar a página
+		handleResize();
+
+		// Remove o ouvinte de evento quando o componente é desmontado
+		return () => {
+			window.removeEventListener("resize", handleResize);
+		};
+	}, []); // Executa apenas uma vez durante a montagem do componente
+
 	return (
 		<StyledBox style={componentStyles}>
 			<Heading pt="50px" as="h2" fontSize="36px" size="lg">
@@ -86,12 +137,12 @@ export const Specialty = ({ isHighContrast, isLoggedIn }) => {
 				)}
 			</Box>
 			<Flex
-				mt="50px"
-				p="0 75px 50px"
+				mt={{ base: "10px", md: "50px" }}
+				p={{ base: "0 35px 80px", md: "0 75px 50px" }}
 				display="flex"
 				justifyContent="center"
 				flexWrap="wrap"
-				gap="75px"
+				gap={{ base: "30px", md: "75px" }}
 				h="auto"
 			>
 				{specialtyComponents}
